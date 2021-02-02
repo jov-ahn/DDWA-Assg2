@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="delete_team_query.php" method="POST" class="needs-validation" novalidate>
+            <form action="team_db.php" method="POST" class="needs-validation" novalidate>
                 <div class="modal-body">
                     <input type="hidden" name="id" value="<?= $row['id'] ?>">
                     <h4>Delete "<?= $row['username'] ?>"?</h4>

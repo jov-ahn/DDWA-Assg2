@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     require 'inc/config.php';
 
     $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
@@ -6,7 +8,6 @@
     if (mysqli_connect_errno()) {
         die('db connection failed' . mysqli_connect_error() . ' (' . mysqli_connect_errno() . ')');
     }
-    else {
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Rooms - Hintel</title>
+    <title>Team - Hintel</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -54,37 +55,58 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                        Add Team Account
-                    </button>
+                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#addModal">Add Team Account</button>
+
+                    <?php
+                        if (isset($_SESSION['team_alert'])) {
+                            echo "<div class=\"alert alert-info alert-dismissible fade show\" role=\"alert\">
+                                    {$_SESSION['team_alert']}
+                                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                        <span aria-hidden=\"true\">&times;</span>
+                                    </button>
+                                </div>";
+                            unset($_SESSION['team_alert']);
+                        }
+                    ?>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Add Team Account</h5>
+                                    <h5 class="modal-title" id="addModalLabel">Add Team Account</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
-                                    <form action="code.php" method="POST">
+                                <form action="team_db.php" method="POST" class="needs-validation" novalidate>
+                                    <div class="modal-body">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Username">
+                                            <label>Username</label>
+                                            <input type="text" name="username" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password">
+                                            <label>Password</label>
+                                            <input type="password" name="password" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Confirm Password">
+                                            <label>Confirm Password</label>
+                                            <input type="password" name="confirm-password" class="form-control" required>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-primary">Confirm</button>
-                                </div>
+                                        <div class="form-group">
+                                            <label>Role</label>
+                                            <select class="form-control" name="role">
+                                                <option>User</option>
+                                                <option>Staff</option>
+                                                <option>Admin</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="submit" name="add-team" class="btn btn-primary">Confirm</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -98,6 +120,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Username</th>
                                             <th>Role</th>
                                             <th>Actions</th>
@@ -105,33 +128,37 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Username</th>
                                             <th>Role</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-<?php
-        $res = $connection->query('SELECT * FROM team_account;');
-        
-        if ($res->num_rows > 0) {
-            while ($row = mysqli_fetch_assoc($res)) {
-                echo "<tr>
-                        <td>{$row['username']}</td>
-                        <td>{$row['role']}</td>
-                        <td>
-                            <a href='#' class='btn btn-warning btn-circle'>
-                                <i class='fas fa-exclamation-triangle'></i>
-                            </a>
-                            <a href='#' class='btn btn-danger btn-circle'>
-                                <i class='fas fa-trash'></i>
-                            </a>
-                        </td>
-                    </tr>";
-            }
-        }
-    }
-?>
+                                        <?php
+                                            $res = $connection->query("SELECT * FROM team_account;");
+                                            
+                                            if ($res->num_rows > 0) {
+                                                while ($row = mysqli_fetch_assoc($res)) {
+                                                    echo "<tr>
+                                                            <td>{$row['id']}</td>
+                                                            <td>{$row['username']}</td>
+                                                            <td>{$row['role']}</td>
+                                                            <td>
+                                                                <button type=\"button\" class=\"btn btn-warning btn-circle\" data-toggle=\"modal\" data-target=\"#editModal{$row['id']}\">
+                                                                    <i class=\"fas fa-pencil-alt\"></i>
+                                                                </button>
+                                                                <button type=\"button\" class=\"btn btn-danger btn-circle\" data-toggle=\"modal\" data-target=\"#deleteModal{$row['id']}\">
+                                                                    <i class=\"fas fa-trash\"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>";
+
+                                                    include 'team_edit_modal.php';
+                                                    include 'team_delete_modal.php';
+                                                }
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -160,5 +187,7 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+
+    <script src="js/form-validator.js"></script>
 
 <?php include('inc/footer.php'); ?>

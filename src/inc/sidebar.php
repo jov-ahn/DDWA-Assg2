@@ -46,7 +46,7 @@
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="guests.php">Guests</a>
+            <a class="collapse-item" href="members.php">Members</a>
             <a class="collapse-item" href="staff.php">Staff</a>
         </div>
     </div>

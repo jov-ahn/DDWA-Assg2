@@ -52,7 +52,7 @@
             }
         }
 
-        if (isset($_POST['save-changes'])) {
+        if (isset($_POST['edit-team'])) {
             $id = $_POST['id'];
             $username = $_POST['username'];
             $password = $_POST['password'];

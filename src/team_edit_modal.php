@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <label>Role</label>
                         <select class="form-control" name="role">
-                            // https://stackoverflow.com/a/1336376
+                            <!-- https://stackoverflow.com/a/1336376 -->
                             <option <?= $row['role'] == 'User' ? 'selected' : ''; ?>>User</option>
                             <option <?= $row['role'] == 'Staff' ? 'selected' : ''; ?>>Staff</option>
                             <option <?= $row['role'] == 'Admin' ? 'selected' : ''; ?>>Admin</option>

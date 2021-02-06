@@ -15,19 +15,9 @@
             $confirmPassword = $_POST['confirm-password'];
             $role = $_POST['role'];
 
-            $res = $connection->query('SELECT * FROM team_account;');
-            $usernameExists = false;
-            
-            if ($res->num_rows > 0) {
-                while ($row = mysqli_fetch_assoc($res)) {
-                    if ($row['username'] === $username) {
-                        $usernameExists = true;
-                        break;
-                    }
-                }
-            }
+            $usernameExists = $connection->query("SELECT * FROM team_account WHERE username = '$username';");
 
-            if (!$usernameExists) {
+            if ($usernameExists->num_rows === 0) {
                 if ($password === $confirmPassword) {
                     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                     $res = $connection->query("INSERT INTO team_account VALUES (NULL, '$username', '$hashedPassword', '$role')");
@@ -59,19 +49,9 @@
             $confirmPassword = $_POST['confirm-password'];
             $role = $_POST['role'];
 
-            $res = $connection->query("SELECT * FROM team_account WHERE id != '$id';");
-            $usernameExists = false;
-            
-            if ($res->num_rows > 0) {
-                while ($row = mysqli_fetch_assoc($res)) {
-                    if ($row['username'] === $username) {
-                        $usernameExists = true;
-                        break;
-                    }
-                }
-            }
+            $usernameExists = $connection->query("SELECT * FROM team_account WHERE username = '$username' AND id != '$id';");
 
-            if (!$usernameExists) {
+            if ($usernameExists->num_rows === 0) {
                 if ($password === $confirmPassword) {
                     if ($password === '') {
                         $res = $connection->query("UPDATE team_account SET username = '$username', role = '$role' WHERE id = '$id'");

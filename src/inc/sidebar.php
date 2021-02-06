@@ -38,15 +38,15 @@
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-        aria-expanded="true" aria-controls="collapseUtilities">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
+        aria-expanded="true" aria-controls="collapseUsers">
         <i class="fas fa-fw fa-wrench"></i>
         <span>Users</span>
     </a>
-    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+    <div id="collapseUsers" class="collapse" aria-labelledby="headingUsers"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="guests.php">Guests</a>
+            <a class="collapse-item" href="members.php">Members</a>
             <a class="collapse-item" href="staff.php">Staff</a>
         </div>
     </div>
@@ -62,18 +62,34 @@
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="inventory.php">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Inventory</span>
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventoryManagement"
+        aria-expanded="true" aria-controls="collapseInventoryManagement">
+        <i class="fas fa-fw fa-wrench"></i>
+        <span>Inventory Management</span>
     </a>
+    <div id="collapseInventoryManagement" class="collapse" aria-labelledby="headingInventoryManagement"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="inventory.php">Inventory</a>
+            <a class="collapse-item" href="inventory_categories.php">Inventory Categories</a>
+        </div>
+    </div>
 </li>
 
 <!-- Nav Item - Tables -->
 <li class="nav-item">
-    <a class="nav-link" href="expenses.php">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Expenses</span>
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseExpenseManagement"
+        aria-expanded="true" aria-controls="collapseExpenseManagement">
+        <i class="fas fa-fw fa-wrench"></i>
+        <span>Expense Management</span>
     </a>
+    <div id="collapseExpenseManagement" class="collapse" aria-labelledby="headingExpenseManagement"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="expenses.php">Expenses</a>
+            <a class="collapse-item" href="expenses_categories.php">Expenses Categories</a>
+        </div>
+    </div>
 </li>
 
 <!-- Nav Item - Tables -->

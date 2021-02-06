@@ -47,7 +47,7 @@
 
         }
 
-        if (isset($_POST['save-changes'])) {
+        if (isset($_POST['edit-staff'])) {
             $staffid = $_POST['staff_id'];
             $staffname = $_POST['name'];
             $position = $_POST['position'];

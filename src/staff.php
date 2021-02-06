@@ -137,6 +137,7 @@
                                             <th>Country</th>
                                             <th>Start date</th>
                                             <th>Salary</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -149,6 +150,7 @@
                                             <th>Country</th>
                                             <th>Start date</th>
                                             <th>Salary</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>

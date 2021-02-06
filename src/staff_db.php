@@ -31,19 +31,19 @@
                 }
             }
 
-            if (!$usernameExists) {
+            
                 
-                    $res = $connection->query("INSERT INTO staff VALUES (NULL, '$staffname', '$position', '$email', '$number', '$country', '$startdate', '$salary')");
+            $res = $connection->query("INSERT INTO staff VALUES (NULL, '$staffname', '$position', '$email', '$number', '$country', '$startdate', '$salary')");
                     
-                    if ($res) {
-                        $_SESSION['staff_alert'] = "Staff added successfully";
-                        header('Location: staff.php');
-                    }
-                    else {
-                        echo "db insert error: $mysqli->error";
-                        exit();
-                    }
+                if ($res) {
+                    $_SESSION['staff_alert'] = "Staff added successfully";
+                    header('Location: staff.php');
                 }
+                else {
+                    echo "db insert error: $mysqli->error";
+                    exit();
+            }
+                
 
         }
 

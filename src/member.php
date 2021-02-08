@@ -21,7 +21,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Staff - Hintel</title>
+    <title> Member - Hintel</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -55,17 +55,17 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#addModal">Add Staff Account</button>
+                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#addModal">Add Member Account</button>
 
                     <?php
-                        if (isset($_SESSION['staff_alert'])) {
+                        if (isset($_SESSION['member_alert'])) {
                             echo "<div class=\"alert alert-info alert-dismissible fade show\" role=\"alert\">
-                                    {$_SESSION['staff_alert']}
+                                    {$_SESSION['member_alert']}
                                     <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                                         <span aria-hidden=\"true\">&times;</span>
                                     </button>
                                 </div>";
-                            unset($_SESSION['staff_alert']);
+                            unset($_SESSION['member_alert']);
                         }
                     ?>
 
@@ -74,20 +74,16 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="addModalLabel">Add Staff Account</h5>
+                                    <h5 class="modal-title" id="addModalLabel">Add Member Account</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form action="staff_db.php" method="POST" class="needs-validation" novalidate>
+                                <form action="member_db.php" method="POST" class="needs-validation" novalidate>
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label>Name</label>
                                             <input type="text" name="name" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Position</label>
-                                            <input type="text" name="position" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Email</label>
@@ -95,25 +91,25 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Mobile number</label>
-                                            <input type="text" name="number" class="form-control" required>
+                                            <input type="text" name="contact_no" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Country</label>
                                             <input type="text" name="country" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Start date</label>
-                                            <input type="date" name="startdate" class="form-control" required>
+                                            <label>VIP status</label>
+                                            <input type="text" name="vip_status" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Salary</label>
-                                            <input type="text" name="salary" class="form-control" required>
+                                            <label>Remarks</label>
+                                            <input type="text" name="remarks" class="form-control" required>
                                         </div>
                                         
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="submit" name="add-staff" class="btn btn-primary">Confirm</button>
+                                        <button type="submit" name="add-member" class="btn btn-primary">Confirm</button>
                                     </div>
                                 </form>
                             </div>
@@ -122,64 +118,61 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Staff Details</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Member Details</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>Member ID</th>
                                             <th>Name</th>
-                                            <th>Position</th>
                                             <th>Email</th>
                                             <th>Contact number</th>
                                             <th>Country</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Vip status</th>
+                                            <th>Remarks</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        <th>ID</th>
+                                            <th>Member ID</th>
                                             <th>Name</th>
-                                            <th>Position</th>
                                             <th>Email</th>
                                             <th>Contact number</th>
                                             <th>Country</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Vip status</th>
+                                            <th>Remarks</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php
-                                            $res = $connection->query("SELECT * FROM staff;");
+                                            $res = $connection->query("SELECT * FROM member;");
                                             
                                             if ($res->num_rows > 0) {
                                                 while ($row = mysqli_fetch_assoc($res)) {
                                                     echo "<tr>
-                                                            <td>{$row['staff_id']}</td>
-                                                            <td>{$row['name']}</td>
-                                                            <td>{$row['position']}</td>
+                                                            <td>{$row['member_id']}</td>
+                                                            <td>{$row['member_name']}</td>
                                                             <td>{$row['email']}</td>
                                                             <td>{$row['contact_no']}</td>
                                                             <td>{$row['country']}</td>
-                                                            <td>{$row['start_date']}</td>
-                                                            <td>{$row['monthly_salary']}</td>
+                                                            <td>{$row['vip_status']}</td>
+                                                            <td>{$row['remarks']}</td>
                                                             <td>
-                                                                <button type=\"button\" class=\"btn btn-warning btn-circle\" data-toggle=\"modal\" data-target=\"#editModal{$row['staff_id']}\">
+                                                                <button type=\"button\" class=\"btn btn-warning btn-circle\" data-toggle=\"modal\" data-target=\"#editModal{$row['member_id']}\">
                                                                     <i class=\"fas fa-pencil-alt\"></i>
                                                                 </button>
-                                                                <button type=\"button\" class=\"btn btn-danger btn-circle\" data-toggle=\"modal\" data-target=\"#deleteModal{$row['staff_id']}\">
+                                                                <button type=\"button\" class=\"btn btn-danger btn-circle\" data-toggle=\"modal\" data-target=\"#deleteModal{$row['member_id']}\">
                                                                     <i class=\"fas fa-trash\"></i>
                                                                 </button>
                                                             </td>
                                                         </tr>";
 
-                                                    include 'staff_edit_modal.php';
-                                                    include 'staff_delete_modal.php';
+                                                    include 'member_edit_modal.php';
+                                                    include 'member_delete_modal.php';
                                                 }
                                             }
                                         ?>

@@ -10,7 +10,7 @@
     }
     else {
         if (isset($_POST['add-member'])) {
-            $membername = $_POST['name'];
+            $name = $_POST['name'];
             $email = $_POST['email'];
             $number = $_POST['contact_no'];
             $country = $_POST['country'];
@@ -23,7 +23,7 @@
             
             if ($res->num_rows > 0) {
                 while ($row = mysqli_fetch_assoc($res)) {
-                    if ($row['name'] === $membername) {
+                    if ($row['name'] === $name) {
                         $usernameExists = true;
                         break;
                     }
@@ -32,7 +32,7 @@
 
             if (!$usernameExists) {
                 
-                    $res = $connection->query("INSERT INTO member VALUES ('$member_id', '$membername', '$email', '$number', '$country', '$membership', '$remarks')");
+                    $res = $connection->query("INSERT INTO member VALUES ('$member_id', '$name', '$email', '$number', '$country', '$membership', '$remarks')");
                     
                     if ($res) {
                         $_SESSION['member_alert'] = "Member added successfully";
@@ -48,14 +48,14 @@
 
         if (isset($_POST['edit-member'])) {
             $memberid = $_POST['member_id'];
-            $membername = $_POST['membername'];
+            $name = $_POST['name'];
             $email = $_POST['email'];
             $contact_no = $_POST['contact_no'];
             $country = $_POST['country'];
             $membership = $_POST['vip_status'];
             $remarks = $_POST['remarks'];
 
-            $res = $connection->query("UPDATE member SET name = '$membername', email = '$email', contact_no = '$contact_no', country = '$country', vip_status = '$membership', remarks = '$remarks' WHERE member_id = '$memberid'");
+            $res = $connection->query("UPDATE member SET name = '$name', email = '$email', contact_no = '$contact_no', country = '$country', vip_status = '$membership', remarks = '$remarks' WHERE member_id = '$memberid'");
 
             if ($res) {
                 $_SESSION['member_alert'] = "Member edited successfully";
@@ -70,9 +70,9 @@
         
 
         if (isset($_POST['delete-member'])) {
-            $membername = $_POST['member_name'];
+            $name = $_POST['name'];
 
-            $res = $connection->query("DELETE FROM member WHERE name = '$membername';");
+            $res = $connection->query("DELETE FROM member WHERE name = '$name';");
             
             if ($res) {
                 $_SESSION['member_alert'] = "Successfully deleted Member";

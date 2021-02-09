@@ -9,7 +9,7 @@
             </div>
             <form action="member_db.php" method="POST" class="needs-validation" novalidate>
                 <div class="modal-body">
-                    <input type="hidden" name="member_name" value="<?= $row['name'] ?>">
+                    <input type="hidden" name="name" value="<?= $row['name'] ?>">
                     <h4>Delete "<?= $row['name'] ?>"?</h4>
                     <h6>This action cannot be undone.</h6>
                 </div>

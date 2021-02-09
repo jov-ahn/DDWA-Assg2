@@ -55,7 +55,7 @@
             $membership = $_POST['vip_status'];
             $remarks = $_POST['remarks'];
 
-            $res = $connection->query("UPDATE member SET member_name = '$membername', email = '$email', contact_no = '$contact_no', country = '$country', vip_status = '$membership', remarks = '$remarks' WHERE member_id = '$memberid'");
+            $res = $connection->query("UPDATE member SET name = '$membername', email = '$email', contact_no = '$contact_no', country = '$country', vip_status = '$membership', remarks = '$remarks' WHERE member_id = '$memberid'");
 
             if ($res) {
                 $_SESSION['member_alert'] = "Member edited successfully";
@@ -72,7 +72,7 @@
         if (isset($_POST['delete-member'])) {
             $membername = $_POST['member_name'];
 
-            $res = $connection->query("DELETE FROM member WHERE member_name = '$membername';");
+            $res = $connection->query("DELETE FROM member WHERE name = '$membername';");
             
             if ($res) {
                 $_SESSION['member_alert'] = "Successfully deleted Member";

@@ -12,7 +12,7 @@
                     <input type="hidden" name="member_id" value="<?= $row['member_id'] ?>">
                     <div class="form-group">
                         <label>Member name</label>
-                        <input type="text" name="membername" value=<?= $row['member_name'] ?> class="form-control">
+                        <input type="text" name="membername" value=<?= $row['name'] ?> class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Email</label>

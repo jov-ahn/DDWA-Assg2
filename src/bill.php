@@ -21,7 +21,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Member - Hintel</title>
+    <title> Bill - Hintel</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -55,17 +55,17 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#addModal">Add Member Account</button>
+                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#addModal">Add Bill</button>
 
                     <?php
-                        if (isset($_SESSION['member_alert'])) {
+                        if (isset($_SESSION['bill_alert'])) {
                             echo "<div class=\"alert alert-info alert-dismissible fade show\" role=\"alert\">
-                                    {$_SESSION['member_alert']}
+                                    {$_SESSION['bill_alert']}
                                     <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                                         <span aria-hidden=\"true\">&times;</span>
                                     </button>
                                 </div>";
-                            unset($_SESSION['member_alert']);
+                            unset($_SESSION['bill_alert']);
                         }
                     ?>
 
@@ -74,15 +74,19 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="addModalLabel">Add Member Account</h5>
+                                    <h5 class="modal-title" id="addModalLabel">Add Bill</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form action="member_db.php" method="POST" class="needs-validation" novalidate>
+                                <form action="bill_db.php" method="POST" class="needs-validation" novalidate>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label>Name</label>
+                                            <label>Date</label>
+                                            <input type="date" name="date" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Guest name</label>
                                             <input type="text" name="name" class="form-control" required>
                                         </div>
                                         <div class="form-group">
@@ -90,16 +94,12 @@
                                             <input type="email" name="email" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Mobile number</label>
-                                            <input type="text" name="contact_no" class="form-control" required>
+                                            <label>Amount</label>
+                                            <input type="text" name="amount" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Country</label>
-                                            <input type="text" name="country" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>VIP status</label>
-                                            <input type="text" name="vip_status" class="form-control" required>
+                                            <label>Room Service Fee(s)</label>
+                                            <input type="text" name="fees" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Remarks</label>
@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="submit" name="add-member" class="btn btn-primary">Confirm</button>
+                                        <button type="submit" name="add-bill" class="btn btn-primary">Confirm</button>
                                     </div>
                                 </form>
                             </div>
@@ -118,61 +118,61 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Member Details</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Bill Details</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Member ID</th>
-                                            <th>Name</th>
+                                            <th>Bill ID</th>
+                                            <th>Guest Name</th>
+                                            <th>Date</th>
                                             <th>Email</th>
-                                            <th>Contact number</th>
-                                            <th>Country</th>
-                                            <th>Vip status</th>
+                                            <th>Amount</th>
+                                            <th>Room Service Fee</th>
                                             <th>Remarks</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Member ID</th>
-                                            <th>Name</th>
+                                            <th>Bill ID</th>
+                                            <th>Guest Name</th>
+                                            <th>Date</th>
                                             <th>Email</th>
-                                            <th>Contact number</th>
-                                            <th>Country</th>
-                                            <th>Vip status</th>
+                                            <th>Amount</th>
+                                            <th>Room Service Fee</th>
                                             <th>Remarks</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php
-                                            $res = $connection->query("SELECT * FROM member;");
+                                            $res = $connection->query("SELECT * FROM bill;");
                                             
                                             if ($res->num_rows > 0) {
                                                 while ($row = mysqli_fetch_assoc($res)) {
                                                     echo "<tr>
-                                                            <td>{$row['member_id']}</td>
-                                                            <td>{$row['name']}</td>
-                                                            <td>{$row['email']}</td>
-                                                            <td>{$row['contact_no']}</td>
-                                                            <td>{$row['country']}</td>
-                                                            <td>{$row['vip_status']}</td>
+                                                            <td>{$row['bill_id']}</td>
+                                                            <td>{$row['member_name']}</td>
+                                                            <td>{$row['date']}</td>
+                                                            <td>{$row['member_email']}</td>
+                                                            <td>{$row['amount']}</td>
+                                                            <td>{$row['room_service_fee']}</td>
                                                             <td>{$row['remarks']}</td>
                                                             <td>
-                                                                <button type=\"button\" class=\"btn btn-warning btn-circle\" data-toggle=\"modal\" data-target=\"#editModal{$row['member_id']}\">
+                                                                <button type=\"button\" class=\"btn btn-warning btn-circle\" data-toggle=\"modal\" data-target=\"#editModal{$row['bill_id']}\">
                                                                     <i class=\"fas fa-pencil-alt\"></i>
                                                                 </button>
-                                                                <button type=\"button\" class=\"btn btn-danger btn-circle\" data-toggle=\"modal\" data-target=\"#deleteModal{$row['member_id']}\">
+                                                                <button type=\"button\" class=\"btn btn-danger btn-circle\" data-toggle=\"modal\" data-target=\"#deleteModal{$row['bill_id']}\">
                                                                     <i class=\"fas fa-trash\"></i>
                                                                 </button>
                                                             </td>
                                                         </tr>";
 
-                                                    include 'member_edit_modal.php';
-                                                    include 'member_delete_modal.php';
+                                                    include 'bill_edit_modal.php';
+                                                    include 'bill_delete_modal.php';
                                                 }
                                             }
                                         ?>

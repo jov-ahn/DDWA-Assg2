@@ -46,7 +46,7 @@
     <div id="collapseUsers" class="collapse" aria-labelledby="headingUsers"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="members.php">Members</a>
+            <a class="collapse-item" href="member.php">Members</a>
             <a class="collapse-item" href="staff.php">Staff</a>
         </div>
     </div>
@@ -54,7 +54,7 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link" href="bills.php">
+    <a class="nav-link" href="bill.php">
         <i class="fas fa-fw fa-folder"></i>
         <span>Bills</span>
     </a>

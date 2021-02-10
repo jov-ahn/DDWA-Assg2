@@ -21,7 +21,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Staff - Hintel</title>
+    <title>Staff - Hintel</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -55,7 +55,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#addModal">Add Staff Account</button>
+                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#addModal">Add Staff Member</button>
 
                     <?php
                         if (isset($_SESSION['staff_alert'])) {
@@ -74,7 +74,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="addModalLabel">Add Staff Account</h5>
+                                    <h5 class="modal-title" id="addModalLabel">Add Staff Member</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -91,10 +91,10 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="email" name="email" class="form-control" required>
+                                            <input type="text" name="email" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Mobile number</label>
+                                            <label>Contact No.</label>
                                             <input type="text" name="number" class="form-control" required>
                                         </div>
                                         <div class="form-group">
@@ -102,7 +102,7 @@
                                             <input type="text" name="country" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Start date</label>
+                                            <label>Start Date</label>
                                             <input type="date" name="startdate" class="form-control" required>
                                         </div>
                                         <div class="form-group">
@@ -129,26 +129,26 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>Staff ID</th>
                                             <th>Name</th>
                                             <th>Position</th>
                                             <th>Email</th>
-                                            <th>Contact number</th>
+                                            <th>Contact No.</th>
                                             <th>Country</th>
-                                            <th>Start date</th>
+                                            <th>Start Date</th>
                                             <th>Salary</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        <th>ID</th>
+                                            <th>Staff ID</th>
                                             <th>Name</th>
                                             <th>Position</th>
                                             <th>Email</th>
-                                            <th>Contact number</th>
+                                            <th>Contact No.</th>
                                             <th>Country</th>
-                                            <th>Start date</th>
+                                            <th>Start Date</th>
                                             <th>Salary</th>
                                             <th>Actions</th>
                                         </tr>

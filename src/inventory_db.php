@@ -15,7 +15,7 @@
             $quantity = $_POST['quantity'];
             $remarks = $_POST['remarks'];
 
-            $categoryExists = $connection->query("SELECT * FROM inventory_category WHERE category_name = '$category';");
+            $categoryExists = $connection->query("SELECT * FROM inventory_category WHERE category_id = '$category';");
             $itemExists = $connection->query("SELECT * FROM inventory WHERE item = '$item';");
 
             if ($categoryExists->num_rows > 0) {
@@ -49,12 +49,12 @@
             $quantity = $_POST['quantity'];
             $remarks = $_POST['remarks'];
 
-            $categoryExists = $connection->query("SELECT * FROM inventory_category WHERE category_name = '$category';");
-            $itemExists = $connection->query("SELECT * FROM inventory WHERE item = '$item' AND item_id != '$itemID';");
+            $categoryExists = $connection->query("SELECT * FROM inventory_category WHERE category_id = '$category';");
+            $itemExists = $connection->query("SELECT * FROM inventory WHERE item = '$item' AND inventory_id != '$itemID';");
 
             if ($categoryExists->num_rows > 0) {
                 if ($itemExists->num_rows === 0) {
-                    $res = $connection->query("UPDATE inventory SET category = '$category', item = '$item', quantity = '$quantity', remarks = '$remarks' WHERE item_id = '$itemID'");
+                    $res = $connection->query("UPDATE inventory SET category = '$category', item = '$item', quantity = '$quantity', remarks = '$remarks' WHERE inventory_id = '$itemID'");
                     
                     if ($res) {
                         $_SESSION['inventory_alert'] = "Item edited successfully";
@@ -79,7 +79,7 @@
         if (isset($_POST['delete-item'])) {
             $itemID = $_POST['item-id'];
 
-            $res = $connection->query("DELETE FROM inventory WHERE item_id = '$itemID';");
+            $res = $connection->query("DELETE FROM inventory WHERE inventory_id = '$itemID';");
             
             if ($res) {
                 $_SESSION['inventory_alert'] = "Successfully deleted item";

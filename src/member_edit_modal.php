@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Member Details</h5>
+                <h5 class="modal-title" id="editModalLabel">Edit Member</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     <input type="hidden" name="member_id" value="<?= $row['member_id'] ?>">
                     <div class="form-group">
-                        <label>Member name</label>
+                        <label>Name</label>
                         <input type="text" name="name" value=<?= $row['name'] ?> class="form-control">
                     </div>
                     <div class="form-group">
@@ -19,7 +19,7 @@
                         <input type="text" name="email" value=<?= $row['email'] ?> class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Contact Number</label>
+                        <label>Contact No.</label>
                         <input type="text" name="contact_no" value=<?= $row['contact_no'] ?> class="form-control">
                     </div>
                     <div class="form-group">
@@ -27,7 +27,7 @@
                         <input type="text" name="country" value=<?= $row['country'] ?> class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Membership status</label>
+                        <label>VIP Status</label>
                         <input type="text" name="vip_status" value=<?= $row['vip_status'] ?> class="form-control">
                     </div>
                     <div class="form-group">

@@ -21,7 +21,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Member - Hintel</title>
+    <title>Members - Hintel</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -55,7 +55,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#addModal">Add Member Account</button>
+                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#addModal">Add Member</button>
 
                     <?php
                         if (isset($_SESSION['member_alert'])) {
@@ -74,7 +74,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="addModalLabel">Add Member Account</h5>
+                                    <h5 class="modal-title" id="addModalLabel">Add Member</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -90,7 +90,7 @@
                                             <input type="email" name="email" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Mobile number</label>
+                                            <label>Contact No.</label>
                                             <input type="text" name="contact_no" class="form-control" required>
                                         </div>
                                         <div class="form-group">
@@ -98,7 +98,7 @@
                                             <input type="text" name="country" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>VIP status</label>
+                                            <label>VIP Status</label>
                                             <input type="text" name="vip_status" class="form-control" required>
                                         </div>
                                         <div class="form-group">
@@ -118,7 +118,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Member Details</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Members</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -128,9 +128,9 @@
                                             <th>Member ID</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Contact number</th>
+                                            <th>Contact No.</th>
                                             <th>Country</th>
-                                            <th>Vip status</th>
+                                            <th>VIP Status</th>
                                             <th>Remarks</th>
                                             <th>Actions</th>
                                         </tr>
@@ -140,9 +140,9 @@
                                             <th>Member ID</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Contact number</th>
+                                            <th>Contact No.</th>
                                             <th>Country</th>
-                                            <th>Vip status</th>
+                                            <th>VIP Status</th>
                                             <th>Remarks</th>
                                             <th>Actions</th>
                                         </tr>

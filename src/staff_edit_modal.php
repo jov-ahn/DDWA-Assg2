@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Staff Account</h5>
+                <h5 class="modal-title" id="editModalLabel">Edit Staff Member</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     <input type="hidden" name="staff_id" value="<?= $row['staff_id'] ?>">
                     <div class="form-group">
-                        <label>Staff name</label>
+                        <label>Name</label>
                         <input type="text" name="name" value=<?= $row['name'] ?> class="form-control">
                     </div>
                     <div class="form-group">
@@ -23,7 +23,7 @@
                         <input type="text" name="email" value=<?= $row['email'] ?> class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Contact Number</label>
+                        <label>Contact No.</label>
                         <input type="text" name="contact_no" value=<?= $row['contact_no'] ?> class="form-control">
                     </div>
                     <div class="form-group">
@@ -31,7 +31,7 @@
                         <input type="text" name="country" value=<?= $row['country'] ?> class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Start date</label>
+                        <label>Start Date</label>
                         <input type="text" name="startdate" value=<?= $row['start_date'] ?> class="form-control">
                     </div>
                     <div class="form-group">

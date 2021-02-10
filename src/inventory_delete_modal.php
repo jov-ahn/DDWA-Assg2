@@ -1,4 +1,4 @@
-<div class="modal fade" id="deleteModal<?= $row['item_id'] ?>" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal<?= $row['inventory_id'] ?>" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,7 +9,7 @@
             </div>
             <form action="inventory_db.php" method="POST" class="needs-validation" novalidate>
                 <div class="modal-body">
-                    <input type="hidden" name="item-id" value="<?= $row['item_id'] ?>">
+                    <input type="hidden" name="item-id" value="<?= $row['inventory_id'] ?>">
                     <h4>Delete "<?= $row['item'] ?>"?</h4>
                     <h6>This action cannot be undone.</h6>
                 </div>

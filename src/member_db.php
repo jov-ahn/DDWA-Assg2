@@ -75,11 +75,11 @@
             $res = $connection->query("DELETE FROM member WHERE name = '$name';");
             
             if ($res) {
-                $_SESSION['member_alert'] = "Successfully deleted Member";
+                $_SESSION['member_alert'] = "Successfully deleted member";
                 header('Location: member.php');
             }
             else {
-                $_SESSION['member_alert'] = "Failed to delete Member";
+                $_SESSION['member_alert'] = "Failed to delete member";
                 header('Location: member.php');
             }
         }

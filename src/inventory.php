@@ -90,11 +90,12 @@
                                                 $res = $connection->query("SELECT * FROM inventory_category;");
                                                 echo $res->num_rows === 0 ? "<div><a href=\"inventory_categories.php\" class=\"text-warning\">No categories found. Click here to create one!</a></div>" : "";
                                             ?>
-                                            <select class="form-control selectpicker" name="category" title="None" data-live-search="true" required>
+                                            <select class="form-control" name="category" required <?= $res->num_rows === 0 ? 'disabled' : '' ?>>
+                                                <option value="" hidden>None</option>
                                                 <?php
                                                     if ($res->num_rows > 0) {
                                                         while ($row = mysqli_fetch_assoc($res)) {
-                                                            echo "<option>{$row['category_name']}</option>";
+                                                            echo "<option value=\"{$row['category_id']}\">{$row['category_name']}</option>";
                                                         }
                                                     }
                                                 ?>
@@ -149,20 +150,20 @@
                                     </tfoot>
                                     <tbody>
                                         <?php
-                                            $res = $connection->query("SELECT * FROM inventory;");
+                                            $res = $connection->query("SELECT * FROM inventory LEFT JOIN inventory_category ON inventory.category=inventory_category.category_id;");
                                             
                                             if ($res->num_rows > 0) {
                                                 while ($row = mysqli_fetch_assoc($res)) {
                                                     echo "<tr>
-                                                            <td>{$row['category']}</td>
+                                                            <td>{$row['category_name']}</td>
                                                             <td>{$row['item']}</td>
                                                             <td>{$row['quantity']}</td>
                                                             <td>{$row['remarks']}</td>
                                                             <td>
-                                                                <button type=\"button\" class=\"btn btn-warning btn-circle\" data-toggle=\"modal\" data-target=\"#editModal{$row['item_id']}\">
+                                                                <button type=\"button\" class=\"btn btn-warning btn-circle\" data-toggle=\"modal\" data-target=\"#editModal{$row['inventory_id']}\">
                                                                     <i class=\"fas fa-pencil-alt\"></i>
                                                                 </button>
-                                                                <button type=\"button\" class=\"btn btn-danger btn-circle\" data-toggle=\"modal\" data-target=\"#deleteModal{$row['item_id']}\">
+                                                                <button type=\"button\" class=\"btn btn-danger btn-circle\" data-toggle=\"modal\" data-target=\"#deleteModal{$row['inventory_id']}\">
                                                                     <i class=\"fas fa-trash\"></i>
                                                                 </button>
                                                             </td>

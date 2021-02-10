@@ -1,4 +1,4 @@
-<div class="modal fade" id="editModal<?= $row['item_id'] ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal<?= $row['inventory_id'] ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,18 +9,21 @@
             </div>
             <form action="inventory_db.php" method="POST" class="needs-validation" novalidate>
                 <div class="modal-body">
-                    <input type="hidden" name="item-id" value="<?= $row['item_id'] ?>">
+                    <input type="hidden" name="item-id" value="<?= $row['inventory_id'] ?>">
                     <div class="form-group">
                         <label>Category</label>
                         <?php
-                            $res = $connection->query("SELECT * FROM inventory_category;");
-                            echo $res->num_rows === 0 ? "<div><a href=\"inventory_categories.php\" class=\"text-warning\">No categories found. Click here to create one!</a></div>" : "";
+                            $invCat = $connection->query("SELECT * FROM inventory_category;");
+                            echo $invCat->num_rows === 0 ? "<div><a href=\"inventory_categories.php\" class=\"text-warning\">No categories found. Click here to create one!</a></div>" : "";
                         ?>
-                        <select class="form-control selectpicker" name="category" title="None" data-live-search="true" required>
+                        <select class="form-control" name="category" required <?= $invCat->num_rows === 0 ? 'disabled' : '' ?>>
+                            <option value="" hidden>None</option>
                             <?php
-                                if ($res->num_rows > 0) {
-                                    while ($row = mysqli_fetch_assoc($res)) {
-                                        echo "<option>{$row['category_name']}</option>";
+                                if ($invCat->num_rows > 0) {
+                                    while ($row2 = mysqli_fetch_assoc($invCat)) {
+                            ?>
+                                        <option value="<?= $row2['category_id'] ?>" <?= $row2['category_id'] === $row['category'] ? 'selected' : '' ?>><?= $row2['category_name'] ?></option>";
+                            <?php
                                     }
                                 }
                             ?>

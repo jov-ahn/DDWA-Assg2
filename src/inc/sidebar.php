@@ -54,7 +54,7 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link" href="bill.php">
+    <a class="nav-link" href="bills.php">
         <i class="fas fa-fw fa-folder"></i>
         <span>Bills</span>
     </a>

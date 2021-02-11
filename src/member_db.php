@@ -23,7 +23,7 @@
             
             if ($res->num_rows > 0) {
                 while ($row = mysqli_fetch_assoc($res)) {
-                    if ($row['name'] === $name) {
+                    if ($row['member_id'] === $member_id) {
                         $usernameExists = true;
                         break;
                     }

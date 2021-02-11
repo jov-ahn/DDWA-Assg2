@@ -35,6 +35,7 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+
 </head>
 
 <body id="page-top">
@@ -95,7 +96,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Contact No.</label>
-                                            <input type="text" name="number" class="form-control" required>
+                                            <input type="text" name="contactno" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Country</label>
@@ -213,5 +214,7 @@
     <script src="js/demo/datatables-demo.js"></script>
 
     <script src="js/form-validator.js"></script>
+
+
 
 <?php include('inc/footer.php'); ?>

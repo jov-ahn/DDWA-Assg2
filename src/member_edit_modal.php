@@ -28,7 +28,11 @@
                     </div>
                     <div class="form-group">
                         <label>VIP Status</label>
-                        <input type="text" name="vip_status" value=<?= $row['vip_status'] ?> class="form-control">
+                        <input list="vip_status" name="vip_status" value=<?= $row['vip_status'] ?> class="form-control">
+                        <datalist id="vip_status">
+                        <option value="True">
+                        <option value="False">
+                        </datalist>
                     </div>
                     <div class="form-group">
                         <label>Remarks</label>

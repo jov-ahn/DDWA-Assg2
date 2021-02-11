@@ -14,7 +14,7 @@
             $email = $_POST['email'];
             $number = $_POST['contact_no'];
             $country = $_POST['country'];
-            $membership = $_POST['vip_status'];
+            $vipstatus = $_POST['vip_status'];
             $remarks = $_POST['remarks'];
 
 
@@ -32,7 +32,7 @@
 
             if (!$usernameExists) {
                 
-                    $res = $connection->query("INSERT INTO member VALUES ('$member_id', '$name', '$email', '$number', '$country', '$membership', '$remarks')");
+                    $res = $connection->query("INSERT INTO member VALUES ('$member_id', '$name', '$email', '$number', '$country', '$vipstatus', '$remarks')");
                     
                     if ($res) {
                         $_SESSION['member_alert'] = "Member added successfully";
@@ -52,10 +52,10 @@
             $email = $_POST['email'];
             $contact_no = $_POST['contact_no'];
             $country = $_POST['country'];
-            $membership = $_POST['vip_status'];
+            $vipstatus = $_POST['vip_status'];
             $remarks = $_POST['remarks'];
 
-            $res = $connection->query("UPDATE member SET name = '$name', email = '$email', contact_no = '$contact_no', country = '$country', vip_status = '$membership', remarks = '$remarks' WHERE member_id = '$memberid'");
+            $res = $connection->query("UPDATE member SET name = '$name', email = '$email', contact_no = '$contact_no', country = '$country', vip_status = '$vipstatus', remarks = '$remarks' WHERE member_id = '$memberid'");
 
             if ($res) {
                 $_SESSION['member_alert'] = "Member edited successfully";
@@ -70,9 +70,9 @@
         
 
         if (isset($_POST['delete-member'])) {
-            $name = $_POST['name'];
+            $member_id = $_POST['member_id'];
 
-            $res = $connection->query("DELETE FROM member WHERE name = '$name';");
+            $res = $connection->query("DELETE FROM member WHERE member_id = '$member_id';");
             
             if ($res) {
                 $_SESSION['member_alert'] = "Successfully deleted member";

@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label>Contact No.</label>
-                        <input type="text" name="contact_no" value=<?= $row['contact_no'] ?> class="form-control">
+                        <input type="text" name="contactno" value=<?= $row['contact_no'] ?> class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Country</label>

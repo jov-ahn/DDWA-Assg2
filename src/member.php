@@ -21,7 +21,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Members - Hintel</title>
+    <title>Team - Hintel</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -99,7 +99,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>VIP Status</label>
-                                            <input type="text" name="vip_status" class="form-control" required>
+                                            <input list="vip_status" name="vip_status" class="form-control" required>
+                                            <datalist id="vip_status">
+                                            <option value="True">
+                                            <option value="False">
+                                            </datalist>
                                         </div>
                                         <div class="form-group">
                                             <label>Remarks</label>
@@ -206,5 +210,6 @@
     <script src="js/demo/datatables-demo.js"></script>
 
     <script src="js/form-validator.js"></script>
+
 
 <?php include('inc/footer.php'); ?>

@@ -13,7 +13,7 @@
             $staffname = $_POST['name'];
             $position = $_POST['position'];
             $email = $_POST['email'];
-            $number = $_POST['number'];
+            $contactno = $_POST['contactno'];
             $country = $_POST['country'];
             $startdate = $_POST['startdate'];
             $salary = $_POST['salary'];
@@ -33,7 +33,7 @@
 
             
                 
-            $res = $connection->query("INSERT INTO staff VALUES (NULL, '$staffname', '$position', '$email', '$number', '$country', '$startdate', '$salary')");
+            $res = $connection->query("INSERT INTO staff VALUES (NULL, '$staffname', '$position', '$email', '$contactno', '$country', '$startdate', '$salary')");
                     
                 if ($res) {
                     $_SESSION['staff_alert'] = "Staff added successfully";
@@ -52,7 +52,7 @@
             $staffname = $_POST['name'];
             $position = $_POST['position'];
             $email = $_POST['email'];
-            $contact_no = $_POST['contact_no'];
+            $contactno = $_POST['contactno'];
             $country = $_POST['country'];
             $startdate = $_POST['startdate'];
             $salary = $_POST['salary'];
@@ -61,7 +61,7 @@
 
             
             
-            $res = $connection->query("UPDATE staff SET name = '$staffname', position = '$position', email = '$email', contact_no = '$contact_no', country = '$country', start_date = '$startdate', monthly_salary = '$salary' WHERE staff_id = '$staffid'");
+            $res = $connection->query("UPDATE staff SET name = '$staffname', position = '$position', email = '$email', contact_no = '$contactno', country = '$country', start_date = '$startdate', monthly_salary = '$salary' WHERE staff_id = '$staffid'");
 
             if ($res) {
                 $_SESSION['staff_alert'] = "Staff edited successfully";

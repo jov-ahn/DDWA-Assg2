@@ -4,8 +4,9 @@
  
 Provide us insights about your design process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+### User Stories
+- As a higher up of a Boutique Hotel, I want to have an app that is clean, professional and easy to view to have a focused work flow
+- As a higher up of a Boutique Hotel, I want to have an app with a modern, bright and professional colour scheme to not only motivate myself with the work in mind but also provide more life to the product.
 
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. 
 These files should themselves either be included as a pdf file in the project itself (in an separate directory)
@@ -51,18 +52,15 @@ Include the Adobe XD wireframe as a folder. You can include the XD share url.
 
 ## Testing
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
+1. Any data entry form:
+    1. Go to any data entry form such as staff
     2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
+    3. Try to submit the form with an invalid data ( such as entering letters instead of numbers in ID ) and verify that an error message about the incorrect data field appears
     4. Try to submit the form with all inputs valid and verify that a success message appears.
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
 ## Screen Size
 
-This app was designed using Web 1920 as a reference point
+This app was designed using **Web 1920** as a reference point
    - Build for Web Browsers ( Google Chrome, FireFox, Microsoft Edge )
       - Does not include Internet Explorer
    - **Landscape** 
@@ -72,7 +70,6 @@ This app was designed using Web 1920 as a reference point
 
 ## Bugs
    - 
-
 
 
 ## Credits

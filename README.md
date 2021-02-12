@@ -12,11 +12,24 @@ These files should themselves either be included as a pdf file in the project it
 Include the Adobe XD wireframe as a folder. You can include the XD share url. 
 
 ## Features
-
-- 
+- Ability to perform Create, Read, Update, Delete ( CRUD ) on 
+    - Staff Details
+    - Bills
+    - Member Details
+    - Inventory 
+       - Count
+       - Details
+    - Room Details
  
 ### Existing Features
-- 
+- Ability to perform Create, Read, Update, Delete ( CRUD ) on 
+    - Staff Details
+    - Bills
+    - Member Details
+    - Inventory 
+       - Count
+       - Details
+    - Room Details
 
 ### Features Left to Implement
 - 
@@ -47,16 +60,26 @@ For any scenarios that have not been automated, test the user stories manually a
     4. Try to submit the form with all inputs valid and verify that a success message appears.
 
 In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+## Screen Size
 
-You should also mention in this section any interesting bugs or problems y ou discovered during your testing, even if you haven't addressed them yet.
+This app was designed using Web 1920 as a reference point
+   - Build for Web Browsers ( Google Chrome, FireFox, Microsoft Edge )
+      - Does not include Internet Explorer
+   - **Landscape** 
+   - 1920 pixels by 1080 pixels
+   - Responsive sizing
+       - Able to resize for tablet and phone browsers
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+## Bugs
+   - 
+
+
 
 ## Credits
 - Bing Heng
 - Jovan
 - Joo Siang
-- 
+- Jia Jun
 - Sean
 - Zen
 

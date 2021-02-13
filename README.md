@@ -70,7 +70,15 @@ This app was designed using **Web 1920** as a reference point
 
 ## Bugs
    - 
+## Import Instructions
 
+Before doing this, make sure you have downloaded XAMPP Control Panel.
+
+1. Open up XAMPP Control Panel and press "Start" on Apache and MySQL
+2. Create a new database by clicking "New" on the left side of the panel
+3. Next, click on "Import" located in the top menu bar
+4. Click on "Choose file" and import the "hintel.sql"
+5. Lastly, click on "Go" on the bottom right corner of the page and you are all set!
 
 ## Credits
 - Bing Heng
@@ -79,8 +87,6 @@ This app was designed using **Web 1920** as a reference point
 - Jia Jun
 - Sean
 - Zen
-
-
 
 ### Content
 - The Bootstrap template was taken from [StartBootStrap](https://startbootstrap.com/previews/sb-admin-2)

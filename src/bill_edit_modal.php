@@ -27,10 +27,6 @@
                         <input type="text" name="amount" value=<?= $row['amount'] ?> class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Room Service Fee</label>
-                        <input type="text" name="servicefee" value=<?= $row['room_service_fee'] ?> class="form-control">
-                    </div>
-                    <div class="form-group">
                         <label>Remarks</label>
                         <input type="text" name="remarks" value=<?= $row['remarks'] ?> class="form-control">
                     </div>

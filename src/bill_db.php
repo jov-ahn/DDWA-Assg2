@@ -14,7 +14,6 @@
             $name = $_POST['name'];
             $email = $_POST['email'];
             $amount = $_POST['amount'];
-            $fees = $_POST['fees'];
             $remarks = $_POST['remarks'];
 
 
@@ -34,7 +33,7 @@
                 
             if (!$usernameExists) {
                 
-                $res = $connection->query("INSERT INTO bill VALUES ('$date', NULL,'$name', '$email', '$amount', '$fees', '$remarks')");
+                $res = $connection->query("INSERT INTO bill VALUES ('$date', NULL,'$name', '$email', '$amount', '$remarks')");
                 
                 if ($res) {
                     $_SESSION['bill_alert'] = "Bill added successfully";
@@ -54,10 +53,9 @@
             $membername = $_POST['name'];
             $email = $_POST['email'];
             $amount = $_POST['amount'];
-            $servicefee = $_POST['servicefee'];
             $remarks = $_POST['remarks'];
 
-            $res = $connection->query("UPDATE bill SET member_name = '$membername', member_email = '$email', date = '$date', amount = '$amount', room_service_fee = '$servicefee', remarks = '$remarks' WHERE bill_id = '$billid'");
+            $res = $connection->query("UPDATE bill SET member_name = '$membername', member_email = '$email', date = '$date', amount = '$amount', remarks = '$remarks' WHERE bill_id = '$billid'");
 
             if ($res) {
                 $_SESSION['bill_alert'] = "Bill edited successfully";

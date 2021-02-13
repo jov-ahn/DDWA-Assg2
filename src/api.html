@@ -14,8 +14,17 @@
         $(document).ready(function () {
             $.get('api.php', function (res) {
                 var res = JSON.parse(res);
+
                 console.log(res);
                 console.log(res.rooms);
+                console.log(res.members);
+                console.log(res.staff);
+                console.log(res.bills);
+                console.log(res.inventory);
+                console.log(res.inventoryCategories);
+                console.log(res.expenses);
+                console.log(res.expensesCategories);
+                console.log(res.team);
             });
         });
     </script>

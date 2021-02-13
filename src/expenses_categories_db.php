@@ -19,7 +19,7 @@
                 $res = $connection->query("INSERT INTO expense_category VALUES (NULL, '$categoryName')");
                 
                 if ($res) {
-                    $_SESSION['expenses_categories_alert'] = "expense category added successfully";
+                    $_SESSION['expenses_categories_alert'] = "Expense category added successfully";
                     header('Location: expenses_categories.php');
                 }
                 else {
@@ -43,7 +43,7 @@
                 $res = $connection->query("UPDATE expense_category SET category_name = '$categoryName' WHERE category_id = '$categoryID'");
 
                 if ($res) {
-                    $_SESSION['expenses_categories_alert'] = "expense category edited successfully";
+                    $_SESSION['expenses_categories_alert'] = "Expense category edited successfully";
                     header('Location: expenses_categories.php');
                 }
                 else {

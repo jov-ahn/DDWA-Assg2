@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label>Amount</label>
-                        <input type="number" name="amount" value="<?= $row['amount'] ?>" class="form-control" required>
+                        <input type="number" name="amount" step="any" value="<?= $row['amount'] ?>" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer">

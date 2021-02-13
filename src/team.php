@@ -1,5 +1,13 @@
 <?php
     session_start();
+
+    if (empty($_SESSION['logged_in'])) {
+        header("Location: 401.php");
+    }
+
+    if ($_SESSION['role'] !== 'Admin') {
+        header("Location: 403.php");
+    }
     
     require 'inc/config.php';
 
@@ -154,8 +162,10 @@
                                                             </td>
                                                         </tr>";
 
-                                                    include 'team_edit_modal.php';
-                                                    include 'team_delete_modal.php';
+                                                    if ($_SESSION['role'] !== 'User') {
+                                                        include 'team_edit_modal.php';
+                                                        include 'team_delete_modal.php';
+                                                    }
                                                 }
                                             }
                                         ?>

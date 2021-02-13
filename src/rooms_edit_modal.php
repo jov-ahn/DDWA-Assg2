@@ -12,16 +12,16 @@
                     <input type="hidden" name="room-no" value="<?= $row['room_no'] ?>">
                     <div class="form-group">
                         <label>Member ID</label>
-                        <input type="number" name="member-id" value=<?= $row['member_id'] ?> class="form-control" required>
+                        <input type="number" name="member-id" value=<?= $row['member_id'] ?> class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Check-in</label>
                         <!-- https://stackoverflow.com/a/58067507 -->
-                        <input type="datetime-local" name="check-in" value=<?= date('Y-m-d\TH:i', strtotime($row['check_in'])); ?> class="form-control" required>
+                        <input type="datetime-local" name="check-in" value=<?= date('Y-m-d\TH:i', strtotime($row['check_in'])); ?> class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Check-out</label>
-                        <input type="datetime-local" name="check-out" value=<?= date('Y-m-d\TH:i', strtotime($row['check_out'])); ?> class="form-control" required>
+                        <input type="datetime-local" name="check-out" value=<?= date('Y-m-d\TH:i', strtotime($row['check_out'])); ?> class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Extra Items</label>

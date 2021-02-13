@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if (empty($_SESSION['logged_in'])) {
+        header("Location: 401.php");
+    }
     
     require 'inc/config.php';
 
@@ -168,9 +172,11 @@
                                                                 </button>
                                                             </td>
                                                         </tr>";
-
-                                                    include 'inventory_edit_modal.php';
-                                                    include 'inventory_delete_modal.php';
+                                                    
+                                                    if ($_SESSION['role'] !== 'User') {
+                                                        include 'inventory_edit_modal.php';
+                                                        include 'inventory_delete_modal.php';
+                                                    }
                                                 }
                                             }
                                         ?>

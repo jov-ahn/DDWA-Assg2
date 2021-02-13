@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if (empty($_SESSION['logged_in'])) {
+        header("Location: 401.php");
+    }
     
     require 'inc/config.php';
 
@@ -135,8 +139,10 @@
                                                             </td>
                                                         </tr>";
 
-                                                    include 'expenses_categories_edit_modal.php';
-                                                    include 'expenses_categories_delete_modal.php';
+                                                    if ($_SESSION['role'] !== 'User') {
+                                                        include 'expenses_categories_edit_modal.php';
+                                                        include 'expenses_categories_delete_modal.php';
+                                                    }
                                                 }
                                             }
                                         ?>

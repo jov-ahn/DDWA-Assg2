@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
     </div>
@@ -31,7 +31,7 @@
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link" href="rooms.php">
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fas fa-fw fa-hotel"></i>
         <span>Rooms</span>
     </a>
 </li>
@@ -40,7 +40,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
         aria-expanded="true" aria-controls="collapseUsers">
-        <i class="fas fa-fw fa-wrench"></i>
+        <i class="fas fa-fw fa-users"></i>
         <span>Users</span>
     </a>
     <div id="collapseUsers" class="collapse" aria-labelledby="headingUsers"
@@ -55,7 +55,7 @@
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link" href="bill.php">
-        <i class="fas fa-fw fa-folder"></i>
+        <i class="fas fa-fw fa-file-invoice-dollar"></i>
         <span>Bills</span>
     </a>
 </li>
@@ -64,7 +64,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventoryManagement"
         aria-expanded="true" aria-controls="collapseInventoryManagement">
-        <i class="fas fa-fw fa-wrench"></i>
+        <i class="fas fa-fw fa-boxes"></i>
         <span>Inventory Management</span>
     </a>
     <div id="collapseInventoryManagement" class="collapse" aria-labelledby="headingInventoryManagement"
@@ -80,7 +80,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseExpenseManagement"
         aria-expanded="true" aria-controls="collapseExpenseManagement">
-        <i class="fas fa-fw fa-wrench"></i>
+        <i class="fas fa-fw fa-dollar-sign"></i>
         <span>Expense Management</span>
     </a>
     <div id="collapseExpenseManagement" class="collapse" aria-labelledby="headingExpenseManagement"

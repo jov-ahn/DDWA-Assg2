@@ -1,5 +1,13 @@
 <?php
     session_start();
+
+    if (empty($_SESSION['logged_in'])) {
+        header("Location: 401.php");
+    }
+
+    if ($_SESSION['role'] !== 'Admin') {
+        header("Location: 403.php");
+    }
     
     require 'inc/config.php';
 
@@ -34,7 +42,6 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
 
 </head>
 
@@ -96,7 +103,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Contact No.</label>
-                                            <input type="text" name="contactno" class="form-control" required>
+                                            <input type="text" name="number" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Country</label>
@@ -179,8 +186,10 @@
                                                             </td>
                                                         </tr>";
 
-                                                    include 'staff_edit_modal.php';
-                                                    include 'staff_delete_modal.php';
+                                                    if ($_SESSION['role'] !== 'User') {
+                                                        include 'staff_edit_modal.php';
+                                                        include 'staff_delete_modal.php';
+                                                    }
                                                 }
                                             }
                                         ?>
@@ -214,7 +223,5 @@
     <script src="js/demo/datatables-demo.js"></script>
 
     <script src="js/form-validator.js"></script>
-
-
 
 <?php include('inc/footer.php'); ?>

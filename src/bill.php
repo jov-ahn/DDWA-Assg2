@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if (empty($_SESSION['logged_in'])) {
+        header("Location: 401.php");
+    }
     
     require 'inc/config.php';
 
@@ -21,7 +25,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Bill - Hintel</title>
+    <title>Bills - Hintel</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -86,7 +90,7 @@
                                             <input type="date" name="date" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Guest name</label>
+                                            <label>Name</label>
                                             <input type="text" name="name" class="form-control" required>
                                         </div>
                                         <div class="form-group">
@@ -96,10 +100,6 @@
                                         <div class="form-group">
                                             <label>Amount</label>
                                             <input type="text" name="amount" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Room Service Fee(s)</label>
-                                            <input type="text" name="fees" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Remarks</label>
@@ -118,7 +118,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Bill Details</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Bills</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -126,11 +126,10 @@
                                     <thead>
                                         <tr>
                                             <th>Bill ID</th>
-                                            <th>Guest Name</th>
                                             <th>Date</th>
+                                            <th>Name</th>
                                             <th>Email</th>
                                             <th>Amount</th>
-                                            <th>Room Service Fee</th>
                                             <th>Remarks</th>
                                             <th>Actions</th>
                                         </tr>
@@ -138,11 +137,10 @@
                                     <tfoot>
                                         <tr>
                                             <th>Bill ID</th>
-                                            <th>Guest Name</th>
                                             <th>Date</th>
+                                            <th>Name</th>
                                             <th>Email</th>
                                             <th>Amount</th>
-                                            <th>Room Service Fee</th>
                                             <th>Remarks</th>
                                             <th>Actions</th>
                                         </tr>
@@ -155,11 +153,10 @@
                                                 while ($row = mysqli_fetch_assoc($res)) {
                                                     echo "<tr>
                                                             <td>{$row['bill_id']}</td>
-                                                            <td>{$row['member_name']}</td>
                                                             <td>{$row['date']}</td>
+                                                            <td>{$row['member_name']}</td>
                                                             <td>{$row['member_email']}</td>
                                                             <td>{$row['amount']}</td>
-                                                            <td>{$row['room_service_fee']}</td>
                                                             <td>{$row['remarks']}</td>
                                                             <td>
                                                                 <button type=\"button\" class=\"btn btn-warning btn-circle\" data-toggle=\"modal\" data-target=\"#editModal{$row['bill_id']}\">
@@ -170,9 +167,11 @@
                                                                 </button>
                                                             </td>
                                                         </tr>";
-
-                                                    include 'bill_edit_modal.php';
-                                                    include 'bill_delete_modal.php';
+                                                        
+                                                    if ($_SESSION['role'] !== 'User') {
+                                                        include 'bill_edit_modal.php';
+                                                        include 'bill_delete_modal.php';
+                                                    }
                                                 }
                                             }
                                         ?>

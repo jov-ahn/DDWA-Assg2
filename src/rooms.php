@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if (empty($_SESSION['logged_in'])) {
+        header("Location: 401.php");
+    }
     
     require 'inc/config.php';
 
@@ -87,15 +91,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Member ID</label>
-                                            <input type="number" name="member-id" class="form-control" min="1" required>
+                                            <input type="number" name="member-id" class="form-control" min="1">
                                         </div>
                                         <div class="form-group">
                                             <label>Check-in</label>
-                                            <input type="datetime-local" name="check-in" class="form-control" required>
+                                            <input type="datetime-local" name="check-in" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Check-out</label>
-                                            <input type="datetime-local" name="check-out" class="form-control" required>
+                                            <input type="datetime-local" name="check-out" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Extra Items</label>
@@ -183,8 +187,10 @@
                                                             </td>
                                                         </tr>";
 
-                                                    include 'rooms_edit_modal.php';
-                                                    include 'rooms_delete_modal.php';
+                                                    if ($_SESSION['role'] !== 'User') {
+                                                        include 'rooms_edit_modal.php';
+                                                        include 'rooms_delete_modal.php';
+                                                    }
                                                 }
                                             }
                                         ?>

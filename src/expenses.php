@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if (empty($_SESSION['logged_in'])) {
+        header("Location: 401.php");
+    }
     
     require 'inc/config.php';
 
@@ -111,7 +115,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Amount</label>
-                                            <input type="number" name="amount" class="form-control" required>
+                                            <input type="number" name="amount" step="any" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -168,9 +172,11 @@
                                                                 </button>
                                                             </td>
                                                         </tr>";
-
-                                                    include 'expenses_edit_modal.php';
-                                                    include 'expenses_delete_modal.php';
+                                                        
+                                                    if ($_SESSION['role'] !== 'User') {
+                                                        include 'expenses_edit_modal.php';
+                                                        include 'expenses_delete_modal.php';
+                                                    }
                                                 }
                                             }
                                         ?>

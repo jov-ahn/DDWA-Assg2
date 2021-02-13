@@ -4,6 +4,7 @@
  
 Provide us insights about your design process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
+The purpose of this database allow owners of Boutique Hotels to access information from past to present and stay organised as well. The database includes information such as Dashboard, Rooms, Users, Bills, Inventory Management, Expenses Management and Team. All these pages allows them to work better. For example, if the owners wish to check which items needs to be re-stock they can go to the Inventory Management which shows information such as the item's name and amount of stocks currently. 
 ### User Stories
 - As a higher up of a Boutique Hotel, I want to have an app that is clean, professional and easy to view to have a focused work flow
 - As a higher up of a Boutique Hotel, I want to have an app with a modern, bright and professional colour scheme to not only motivate myself with the work in mind but also provide more life to the product.

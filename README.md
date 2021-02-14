@@ -1,17 +1,11 @@
 # DDWA Assignment 2 Hintel App
  
 ## Design Process
- 
-Provide us insights about your design process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
 The purpose of this database allow owners of Boutique Hotels to access information from past to present and stay organised as well. The database includes information such as Dashboard, Rooms, Users, Bills, Inventory Management, Expenses Management and Team. All these pages allows them to work better. For example, if the owners wish to check which items needs to be re-stock they can go to the Inventory Management which shows information such as the item's name and amount of stocks currently. 
 ### User Stories
 - As a higher up of a Boutique Hotel, I want to have an app that is clean, professional and easy to view to have a focused work flow
 - As a higher up of a Boutique Hotel, I want to have an app with a modern, bright and professional colour scheme to not only motivate myself with the work in mind but also provide more life to the product.
-
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. 
-These files should themselves either be included as a pdf file in the project itself (in an separate directory)
-Include the Adobe XD wireframe as a folder. You can include the XD share url. 
 
 ## Features
 - Ability to perform Create, Read, Update, Delete ( CRUD ) on 
@@ -53,6 +47,19 @@ Include the Adobe XD wireframe as a folder. You can include the XD share url.
 
 
 ## Testing
+
+### Login Details
+Admin  
+Username: admin  
+Password: admin  
+
+Staff  
+Username: staff  
+Password: staff  
+
+User  
+Username: user  
+Password: user  
 
 1. Any data entry form:
     1. Go to any data entry form such as staff

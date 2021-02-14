@@ -34,7 +34,8 @@ Include the Adobe XD wireframe as a folder. You can include the XD share url.
     - Room Details
 
 ### Features Left to Implement
-- 
+- Displaying data in charts
+- Syncing up extra items in rooms with inventory
 
 ## Technologies Used
 - [HTML](https://html.com/)
@@ -94,4 +95,3 @@ Before doing this, make sure you have downloaded XAMPP Control Panel.
 
 ### Acknowledgements
 - I received inspiration for this project from Pinterest under [DME Hotel App](https://pin.it/6wsIEbe) Board
-

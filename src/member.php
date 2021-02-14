@@ -55,7 +55,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#addModal">Add Member</button>
+                    <button type="button" class="btn btn-success mb-4" <?= $_SESSION['role'] !== 'User' ? 'data-toggle="modal" data-target="#addModal"' : '' ?>>Add Member</button>
 
                     <?php
                         if (isset($_SESSION['member_alert'])) {

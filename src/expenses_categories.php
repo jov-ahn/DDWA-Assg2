@@ -59,7 +59,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#addModal">Add Expense Category</button>
+                    <button type="button" class="btn btn-success mb-4" <?= $_SESSION['role'] === 'Admin' ? 'data-toggle="modal" data-target="#addModal"' : '' ?>>Add Expense Category</button>
 
                     <?php
                         if (isset($_SESSION['expenses_categories_alert'])) {

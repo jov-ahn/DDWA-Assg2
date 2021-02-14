@@ -60,6 +60,17 @@ Include the Adobe XD wireframe as a folder. You can include the XD share url.
     3. Try to submit the form with an invalid data ( such as entering letters instead of numbers in ID ) and verify that an error message about the incorrect data field appears
     4. Try to submit the form with all inputs valid and verify that a success message appears.
 
+2. Login page:
+   1. Try to submit the empty form and verify that an error message about the required fields appears
+   2. Try to submit the form with username blank and verify that an error message about the missing password field appears
+   3. Try to submit the form with password blank and verify that an error message about the missing username field appears
+   4. Try to submit the form with wrong login information and verify that an error message appears
+   5. Try to submit the form with correct login information and verify that the user gets redirected to the index page
+
+3. Logging out:
+   1. Check when the user clicks on the log out button they will get an  alert informing them that they have been logged out 
+   2. Check when the user clicks on OK they get redirected to the login page
+   
 ## Screen Size
 
 This app was designed using **Web 1920** as a reference point

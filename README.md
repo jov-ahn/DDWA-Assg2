@@ -92,9 +92,6 @@ Before doing this, make sure you have downloaded XAMPP Control Panel.
 ### Content
 - The Bootstrap template was taken from [StartBootStrap](https://startbootstrap.com/previews/sb-admin-2)
 
-### Media
-- The photos used in this site were obtained from ...
-
 ### Acknowledgements
-- I received inspiration for this project from X
+- I received inspiration for this project from Pinterest under [DME Hotel App](https://pin.it/6wsIEbe) Board
 
